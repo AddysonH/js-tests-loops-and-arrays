@@ -6,9 +6,14 @@
 // 1*2*3*4 = 24
 
 function factorials(num) {
+    let total = 1
+    for (let i = 1; i <= num; i++) {
+        total *= i
+    }
 
+    return total
 }
-
+factorials(4)
 // ------------------------------------------
 
 // 2. Write a function that sums up all of the numbers in a range
@@ -17,9 +22,14 @@ function factorials(num) {
 // output: 20
 
 function rangeTotal(n1, n2) {
+    let result = 0
 
+    for (let i = n1; i <= n2; i++) {
+        result += 1
+    }
+    return result
 }
-
+rangeTotal(2, 6)
 // ------------------------------------------
 
 
@@ -31,4 +41,12 @@ function rangeTotal(n1, n2) {
 
 function rangeDivisor(start, end, divisor) {
 
+    let count = 0
+
+    for (let i = start; i <= end; i++) {
+        if (i % divisor == 0) {
+        }
+    }
+    return count
 }
+rangeDivisor(15, 20, 5)

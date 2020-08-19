@@ -4,9 +4,11 @@
 // output: ['is', 'a', 'split', 'sentence.', 'This']
 
 function rearranger(arr) {
+    arr.push(arr.shift())
+
+    return arr
 }
-
-
+rearranger([0, 1, 2, 3, 4, 5])
 // ------------------------------------------
 
 
@@ -16,8 +18,17 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
-}
+    let number = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (number < arr[i]) {
+            number = arr[i]
+        }
 
+    }
+    return number;
+
+}
+largestNum([6, 4, 8, 33, 42, 10])
 
 // ------------------------------------------
 
@@ -28,9 +39,14 @@ function largestNum(arr) {
 // output: [16, 8, 4, 28]
 
 function elemsTimesLength(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] *= arr.length
+    }
+
+    return arr
 }
 
-
+elemsTimesLength([0, 1, 2, 3, 4, 5])
 // ------------------------------------------
 
 
@@ -41,9 +57,25 @@ function elemsTimesLength(arr) {
 // Primitive data types - https://developer.mozilla.org/en-US/docs/Glossary/Primitive
 
 function arrayFlattener(arr) {
+    let output = []
+    for (let i = 0; i < arr.length; i++) {
+        let item = arr[i];
 
+        switch (typeof item) {
+            case 'string':
+            case 'number':
+            case 'boolean':
+                output.push(item)
+                continue;
+        }
+
+        let result = arrayFlattener(item)
+        output = [...output, ...result]
+    }
+    return output
 }
 
+arrayFlattener([[['legume'], 3, []], 2, ['tree', [{}, [5]]]])
 
 // ------------------------------------------
 
